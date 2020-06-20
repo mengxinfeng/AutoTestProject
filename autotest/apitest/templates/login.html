@@ -2,21 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>login</title>
+    <title>AutoTestProject</title>
     <style>
         body{
             text-align: center;
+            background-color: aqua;
         }
     </style>
 </head>
 <body>
-<h1>Login</h1>
-<form action="/login/" method="post">
-    {%csrf_token%}
-    <br><input type="text"name="username" placeholder="请输入用户名">
-    <br><input type="password"name="password" placeholder="请输入密码">
-    {{ error }}<br>
-    <br><button id="submit" type="submit">登录</button>
-</form>
+<div>
+    <font size="1">
+        <h1>【自动化测试开发平台】</h1>
+    </font>
+    <form action="/login/" method="post">
+        {%csrf_token%}
+        <br><a>&nbsp;&nbsp;用户名：</a><input type="text"name="username" placeholder="请输入用户名"><br>
+        <br><a>&nbsp;&nbsp;密&nbsp;&nbsp;码：</a><input type="password"name="password" placeholder="请输入密码">
+        <br>{{ error }}<br>
+        &nbsp;<button style="width: 220px ;height: 28px;" id="submit" type="submit">登录</button>
+    </form>
+</div>
 </body>
 </html>
