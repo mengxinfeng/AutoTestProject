@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>产品自动化测试平台</title>
+</head>
+<body role="document">
+    <nav class="navbar navbar-expand-sm bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">&nbsp;</a>
+            <ul class="nav justify-content-center">
+            </ul>
+            <ul class="nav justify-content-end">
+                <li class="nav-link"><a style="color: white" href="#">{{user}}</a></li>
+                <li class="nav-link"><a style="color: white" href="/logout/">退出</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- 产品列表 -->
+    <div class="row" style="padding-top: 20px;">
+    <div class="col-md-11" style="margin: 0 auto">
+    <table class="table table-striped" >
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>产品名称</th>
+                    <th>产品描述</th>
+                    <th>产品负责人</th>
+                    <th>创建时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{product.id}}</td>
+                    <td>{{product.productname}}</td>
+                    <td>{{product.productdesc}}</td>
+                    <td>{{product.producter}}</td>
+                    <td>{{product.create_time}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    </table>
+    </div>
+    </div>
+</body>
+</html>
