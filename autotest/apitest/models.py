@@ -8,7 +8,7 @@ from product.models import Product
 # 业务场景接口表
 class Apitest(models.Model):
     # 关联产品ID，其中product是应用名，Product是表名
-    Product = models.ForeignKey('product.Product', on_delete=models.CASCADE, null=True)
+    Product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
     # 流程接口名称
     apitestname = models.CharField('流程接口名称', max_length=64)
     # 流程接口描述
@@ -33,6 +33,8 @@ class Apitest(models.Model):
 class Apistep(models.Model):
     # 关联接口用例ID
     Apitest = models.ForeignKey(Apitest,on_delete=models.CASCADE)
+    # 测试步骤
+    apistep = models.CharField('测试步骤',max_length=100,null=True)
     # 接口标题
     apiname = models.CharField('接口名称',max_length=100)
     # 接口地址
@@ -50,4 +52,4 @@ class Apistep(models.Model):
     create_time = models.DateTimeField('创建时间',auto_now=True)
 
     def __str__(self):
-        return self.apiname
+        return self.apistep

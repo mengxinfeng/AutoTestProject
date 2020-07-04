@@ -7,8 +7,7 @@ from apitest.models import Apitest, Apistep
 
 # TabularInline --横向的以表格的形式展示数据
 class ApistepAdmin(admin.TabularInline):
-    list_display = ['apiname', 'apiurl', 'apiparamvalue', 'apimethod', 'apiresult', 'apistatus', 'create_time', 'id',
-                    'apitest']
+    list_display = ['apistep','apiname', 'apiurl', 'apiparamvalue', 'apimethod', 'apiresult', 'apistatus', 'create_time', 'id']
     model = Apistep
     extra = 1
 

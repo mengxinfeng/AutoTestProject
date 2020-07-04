@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>自动化测试平台</title>
+</head>
+<body role="document">
+
+    <nav class="navbar navbar-expand-sm bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">&nbsp;</a>
+            <!--<ul class="nav justify-content-center">-->
+            <!--</ul>-->
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">《自动化测试平台》</a>
+                <ul>
+                    <li><a href="/apitest_manage/">流程接口测试</a></li>
+                    <li><a href="#" style="color: red">流程接口步骤用例</a></li>
+                </ul>
+            </div>
+            <ul class="nav justify-content-end">
+                <li class="nav-link"><a style="color: white" href="#">{{user}}</a></li>
+                <li class="nav-link"><a style="color: white" href="/logout/">退出</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- 流程接口用例列表 -->
+    <div class="row" style="padding-top: 20px;">
+    <div class="col-md-11" style="margin: 0 auto">
+    <table class="table table-striped" >
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <th>所属产品</th>
+                    <th>所属用例</th>
+                    <th>步骤</th>
+                    <th>URL地址</th>
+                    <th>参数=值</th>
+                    <th>方法</th>
+                    <th>预期结果</th>
+                    <th>测试结果</th>
+                    <th>执行时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for apistep in apisteps %}
+                <tr>
+                    <td>{{apistep.Apitest.Product.productname}}</td>
+                    <td>case{{apistep.Apitest.id}}:{{apistep.Apitest.apitestname}}</td>
+                    <td>{{apistep.apistep}}:{{apistep.apiname}}</td>
+                    <td>{{apistep.apiurl}}</td>
+                    <td>{{apistep.apiparamvalue}}</td>
+                    <td>{{apistep.apimethod}}</td>
+                    <td>{{apistep.apiresult}}</td>
+                    <td>{% if apistep.apistatus == 1 %}
+                    <a style="color: green">{{apistep.apistatus}}</a>
+                    {% else %}
+                    <a style="color: red">{{apistep.apistatus}}</a>
+                    {% endif %}
+                    </td>
+                    <td>{{ apistep.create_time }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    </table>
+    </div>
+    </div>
+</body>
+</html>

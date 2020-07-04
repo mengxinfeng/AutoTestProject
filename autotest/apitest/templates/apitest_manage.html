@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>自动化测试平台</title>
+</head>
+<body role="document">
+    <nav class="navbar navbar-expand-sm bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">&nbsp;</a>
+            <!--<ul class="nav justify-content-center">-->
+            <!--</ul>-->
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">《自动化测试平台》</a>
+                <ul>
+                    <li><a href="#" style="color: red">流程接口测试</a></li>
+                    <li><a href="/apistep_manage/">流程接口步骤用例</a></li>
+                </ul>
+            </div>
+            <ul class="nav justify-content-end">
+                <li class="nav-link"><a style="color: white" href="#">{{user}}</a></li>
+                <li class="nav-link"><a style="color: white" href="/logout/">退出</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- 流程接口列表 -->
+    <div class="row" style="padding-top: 20px;">
+    <div class="col-md-11" style="margin: 0 auto">
+    <table class="table table-striped" >
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>接口名称</th>
+                    <th>接口描述</th>
+                    <th>测试负责人</th>
+                    <th>测试结果</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for apitest in apitests %}
+                <tr>
+                    <td>{{apitest.id}}</td>
+                    <td>{{apitest.apitestname}}</td>
+                    <td>{{apitest.apitestdesc}}</td>
+                    <td>{{apitest.apitester}}</td>
+                    <td>{{apitest.apitestresult}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    </table>
+    </div>
+    </div>
+</body>
+</html>
