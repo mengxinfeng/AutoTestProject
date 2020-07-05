@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>自动化测试平台</title>
+</head>
+<body role="document">
+    <nav class="navbar navbar-expand-sm bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">&nbsp;</a>
+            <!--<ul class="nav justify-content-center">-->
+            <!--</ul>-->
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">《自动化测试平台》</a>
+                <ul>
+                    <li><a href="#" style="color: red">单一接口测试</a></li>
+                </ul>
+            </div>
+            <ul class="nav justify-content-end">
+                <li class="nav-link"><a style="color: white" href="#">{{user}}</a></li>
+                <li class="nav-link"><a style="color: white" href="/logout/">退出</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- 单一接口测试用例 -->
+    <div class="row" style="padding-top: 20px;">
+    <div class="col-md-11" style="margin: 0 auto">
+    <table class="table table-striped" >
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <br>
+                </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>产品</th>
+                    <th>测试用例名称</th>
+                    <th>URL地址</th>
+                    <th>参数=值</th>
+                    <th>方法</th>
+                    <th>预期结果</th>
+                    <th>测试结果</th>
+                    <th>时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for apis in apiss %}
+                <tr>
+                    <th>{{ apis.id }}</th>
+                    <th>{{ apis.Product.productname }}</th>
+                    <th>{{ apis.apiname }}</th>
+                    <th>{{ apis.apiurl }}</th>
+                    <th>{{ apis.apiparamvalue }}</th>
+                    <th>{{ apis.apimethod }}</th>
+                    <th>{{ apis.apiresult }}</th>
+                    <th>{{ apis.apistatus }}</th>
+                    <th>{{ apis.create_time }}</th>
+                </tr>
+                {% endfor %}
+            </tbody>
+    </table>
+    </div>
+    </div>
+</body>
+</html>

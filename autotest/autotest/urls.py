@@ -26,4 +26,5 @@ urlpatterns = [
     path('product_manage/', proviews.product_manage),
     path('apitest_manage/', views.apitest_manage),
     path('apistep_manage/', views.apistep_manage),
+    path('apis_manage/', views.apis_manage),
 ]
