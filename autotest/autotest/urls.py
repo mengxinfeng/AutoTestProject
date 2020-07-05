@@ -31,4 +31,5 @@ urlpatterns = [
     path('apis_manage/', views.apis_manage),
     path('bug_manage/', bugviews.bug_manage),
     path('set_manage/', setviews.set_manage),
+    path('user_manage/', setviews.user_manage),
 ]
