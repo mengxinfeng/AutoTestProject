@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>自动化测试平台</title>
+</head>
+<body role="document">
+    <nav class="navbar navbar-expand-sm bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">&nbsp;</a>
+            <!--<ul class="nav justify-content-center">-->
+            <!--</ul>-->
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">《自动化测试平台》</a>
+                <ul>
+                    <li><a href="#" style="color: red">app测试用例列表</a></li>
+                </ul>
+            </div>
+            <ul class="nav justify-content-end">
+                <li class="nav-link"><a style="color: white" href="#">{{user}}</a></li>
+                <li class="nav-link"><a style="color: white" href="/logout/">退出</a></li>
+            </ul>
+        </div>
+    </nav>
+    <br>
+    <!-- app测试用例列表 -->
+    <div class="row" style="padding-top: 20px;">
+    <div class="col-md-11" style="margin: 0 auto">
+    <table class="table table-striped" >
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>产品</th>
+                    <th>测试用例名称</th>
+                    <th>测试结果</th>
+                    <th>测试负责人</th>
+                    <th>时间</th>
+                    <th>测试用例步骤</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appcase in appcases %}
+                <tr>
+                    <td>{{appcase.id}}</td>
+                    <td>{{appcase.Product.productname}}</td>
+                    <td>{{appcase.appcasename}}</td>
+                    <td>{{appcase.apptestresult}}</td>
+                    <td>{{appcase.apptester}}</td>
+                    <td>{{appcase.create_time}}</td>
+                    <td>{{appcase.appcasestep}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    </table>
+    </div>
+    </div>
+</body>
+</html>

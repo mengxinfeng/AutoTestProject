@@ -4,7 +4,7 @@ from apptest.models import Appcasestep
 # Register your models here.
 
 class AppcasestepAdmin(admin.TabularInline):
-    list_display = ['appteststep','apptestobjname','appfindmethod','appevelement','apptestresult','create_time','id','appcase']
+    list_display = ['appteststep','apptestobjname','appfindmethod','appevelement','apptestdata','apptestresult','create_time','id','appcase']
     model = Appcasestep
     extra = 1
 class AppcaseAdmin(admin.ModelAdmin):

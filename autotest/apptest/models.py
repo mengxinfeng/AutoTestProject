@@ -34,7 +34,7 @@ class Appcasestep(models.Model):
     # 控件元素
     appevelement = models.CharField('控件元素',max_length=800)
     # 测试数据
-    apptestdata = models.CharField('操作方法',max_length=200)
+    apptestdata = models.CharField('测试数据',max_length=200)
     # 验证数据
     appassertdata = models.CharField('验证数据',max_length=200)
     # 测试结果
